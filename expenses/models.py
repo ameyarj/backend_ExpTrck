@@ -31,7 +31,7 @@ class Friend(models.Model):
         """Calculate the total amount the user owes to others"""
         return ExpenseShare.objects.filter(
             participant=self.user,
-            paid_by=False,  # Changed from True to False
+            paid_by=False, 
             settled=False
         ).exclude(
             expense__created_by=self.user
@@ -54,7 +54,7 @@ class Friend(models.Model):
         """Get a list of friends to whom the user owes money"""
         return ExpenseShare.objects.filter(
             participant=self.user,
-            paid_by=False,  # Changed from True to False
+            paid_by=False, 
             settled=False
         ).exclude(
             expense__created_by=self.user
